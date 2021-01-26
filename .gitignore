@@ -1,0 +1,75 @@
+# Ignore settings/env settings and secrets
+*/aws-secrets.env
+apm-secret*
+.env_*
+
+db.sqlite3
+*.sqlite3
+# Custom ignores
+/keys/
+
+# Mac system files
+.DS_Store
+
+# JetBrains project directory
+.idea
+
+# VSCode project files
+*.vscode
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+/static/
+
+# Sphinx documentation
+docs/_build/
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# Environments
+.env
+.venv
+venv/
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Used for setting up local debug envs
+debug.py
