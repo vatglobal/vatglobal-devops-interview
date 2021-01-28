@@ -108,20 +108,16 @@ class SnippetViewerList(generics.ListAPIView):
     lookup_url_kwarg = 'snippet_pk'
 
     def get_object(self):
-        # queryset = Snippet.objects.all()
+        queryset = Snippet.objects.all()
 
         # Perform the lookup filtering.
         lookup_url_kwarg = self.lookup_url_kwarg or self.lookup_field
 
         filter_kwargs = {self.lookup_field: self.kwargs[lookup_url_kwarg]}
-        # obj = get_object_or_404(queryset, **filter_kwargs)
+        obj = get_object_or_404(queryset, **filter_kwargs)
 
         # May raise a permission denied
         self.check_object_permissions(self.request, obj)
-        queryset = Snippet.objects.raw('SELECT * FROM snippets_snippet;')
-        print("SELECT * FROM snippets_snippet;")
-        # obj = get_object_or_404(queryset, **filter_kwargs)
-        obj = {}
         return obj
 
     def get_queryset(self):

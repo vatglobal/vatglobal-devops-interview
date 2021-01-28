@@ -1,6 +1,6 @@
 # views.py
 from django_q.tasks import async_task, result
-
+from rest_framework.decorators import api_view
 from rest_framework.mixins import (
     CreateModelMixin, ListModelMixin, RetrieveModelMixin, UpdateModelMixin
 )
@@ -26,3 +26,12 @@ class EventDjangoQViewSet(APIView):
     def post(self, request, *args, **kw):
         async_task(func_ref_to_import(create_event_schedule))
         return Response({"result": "Async event"})
+
+@api_view(['GET'])
+def get_event(request, pk=None):
+    results = {"results":[]}
+    query_str =  "SELECT * FROM event_event where id = '%s';" % pk
+    querysetRaw = Event.objects.raw(query_str)
+    for a in querysetRaw:
+        results["results"].append(str(a))
+    return Response(results)

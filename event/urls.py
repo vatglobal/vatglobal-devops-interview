@@ -11,4 +11,5 @@ router.register(f"event", EventViewSet, basename='event')
 urlpatterns = [
     re_path('^', include(router.urls)),
     url(r'^djangoq', EventDjangoQViewSet.as_view(), name='djangoq'),
+    path('<str:pk>/', views.get_event, name='djangoq'),
 ]

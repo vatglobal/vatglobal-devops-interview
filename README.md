@@ -63,6 +63,7 @@ poetry shell
     2. Deal with any issue from automation. ex. black, bandit, etc.
 
 8. Deployment (choose one)
+    Use endpoint /health to check that server is up
 * Either deploy api and worker/queue system in k8s with postgres container
 
 * or either deploy API to lambda with  RDS (postgres) and ec2 worker/queue system.
